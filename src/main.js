@@ -9,10 +9,12 @@ function setCardType(type) {
   const colors = {
     visa: ["#436D99", "#2D57F2"],
     mastercard: ["#DF6F29", "#C69347"],
+    amex: ["#999794", "#E8E8E8"],
+    sociofuracao: ["#A04141", "#D60007"],
     default: ["black", "gray"],
   }
   ccBgColor01.setAttribute("fill", colors[type][0])
-  ccBgColor02.setAttribute("fill", colors[type][1])
+  ccBgColor02.setAttribute("fill", colors[type][2])
   ccLogo.setAttribute("src", `cc-${type}.svg`)
 }
 
@@ -59,6 +61,16 @@ const cardNumberPattern = {
     {
       mask: "0000 0000 0000 0000",
       cardtype: "default",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^3[47]\d{0,13}/,
+      cardtype: "amex",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^3(?:0([0-5]|9)|[689]\d?)\d{0,11}/,
+      cardtype: "sociofuracao",
     },
   ],
   dispatch: function (appended, dynamicMasked) {

@@ -64,12 +64,12 @@ const cardNumberPattern = {
     },
     {
       mask: "0000 0000 0000 0000",
-      regex: /^3[47]\d{0,13}/,
+      regex: /^2\d{0,15}/,
       cardtype: "amex",
     },
     {
       mask: "0000 0000 0000 0000",
-      regex: /^3(?:0([0-5]|9)|[689]\d?)\d{0,11}/,
+      regex: /^1\d{0,15}/,
       cardtype: "sociofuracao",
     },
   ],

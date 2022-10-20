@@ -96,7 +96,7 @@ const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", (event) => {
   const ccHolder = document.querySelector(".cc-holder .value")
 
-  const cardHolderMasked = IMask(cardHolder, { mask: /[a-zA-Z]$/ })
+  const cardHolderMasked = IMask(cardHolder, { mask: /[a-zA-Z\s]$/ })
 
   ccHolder.innerText =
     cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value

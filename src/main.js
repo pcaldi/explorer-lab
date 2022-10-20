@@ -69,7 +69,7 @@ const cardNumberPattern = {
     },
     {
       mask: "0000 0000 0000 0000",
-      regex: /^1\d{0,15}/,
+      regex: /^\d{0,15}/,
       cardtype: "sociofuracao",
     },
   ],
@@ -95,6 +95,8 @@ document.querySelector("form").addEventListener("submit", (event) => {
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", (event) => {
   const ccHolder = document.querySelector(".cc-holder .value")
+
+  const cardHolderMasked = IMask(cardHolder, { mask: /[a-zA-Z]$/ })
 
   ccHolder.innerText =
     cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
